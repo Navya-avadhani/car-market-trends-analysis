@@ -1,1 +1,30 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+data = pd.read_csv("car_data.csv")
+data.head()
+
+data.tail()
+
+data.describe()
+
+data.info()
+
+data.isnull().sum()
+
+print(data.Car_Name.value_counts())
+
+fig_dims = (12,20)
+fig, ax = plt.subplots(figsize=fig_dims)
+sns.countplot(y = data.Car_Name, ax=ax, data = data)
+
+
+print(data.Fuel_Type.value_counts())
+
+plt.pie(data.Fuel_Type.value_counts(), labels=["Petrol","Diesel","CNG"],shadow=plt.show())
+
+data.Fuel_Type.value_counts().plot.bar()
+
 
